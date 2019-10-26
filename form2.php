@@ -1,52 +1,3 @@
-<?php require ('connect.php')
-/ odbieramy dane z formularza 
-$name = $_POST['name']; 
-$delivery_address = $_POST['deladdress']; 
-$delivery_date_1 = $_POST['DD'];
-$delivery_date_2 = $_POST['MM'];
-$delivery_date_3 = $_POST['YYYY'];
-$deldate = ("$delivery_date_1/$delivery_date_2/$delivery_date_3");
-$dellT_1_1 = $_POST['HH'];
-$dellT_1_2 = $_POST['MM'];
-$dellT_1_3 = $_POST['SS'];
-$collT_1_4 = $_POST['PM'];
-$deltime = ("$dellT_1_1:$dellT_1_2:$dellT_1_3-$dellT_1_4");
-$collPoint = $_POST['colladdress'];
-$status-0 = $_POST['picked'];
-$status-1 = $_POST['dispatched'];
-$$coll_1_1 = $_POST['DD'];
-$$coll_1_2 = $_POST['MM'];
-$$coll_1_3 = $_POST['YYYY'];
-$colldate = ("$delivery_date_1/$delivery_date_2/$delivery_date_3");
-$colTime_1 = $_POST['HH'];
-$colTime_2 = $_POST['MM'];
-$colTime_3 = $_POST['SS'];
-$Collampm = $_POST['PM'];
-$colltime = ("$dellT_1_1:$dellT_1_2:$dellT_1_3-$dellT_1_4");
-$comments = $_POST['coments']; 
-
-
-if($imie and $email) { 
-     
-    // łączymy się z bazą danych 
-    $connection = @mysql_connect('localhost', 'root', '') 
-    or die('Brak połączenia z serwerem MySQL'); 
-    $db = @mysql_select_db('transport', $connection) 
-    or die('Nie mogę połączyć się z bazą danych'); 
-     
-    // dodajemy rekord do bazy 
-    $ins = @mysql_query("INSERT INTO orders VALUES ('', '$name', '$delivery_address', TO_DATE('$deldate', 'DD/MM/YYYY'), TO_TIME($deltime, 'HH:MM:SS-PM'), '$collPoint', '$status-0', '$status-1', TO_DATE($colldate, 'DD/MM/YYYY'), TO_TIME($colltime, 'HH:MM:SS-PM'), '$comments' ); 
-     
-    if($ins) echo "Rekord został dodany poprawnie"; 
-    else echo "Błąd nie udało się dodać nowego rekordu"; 
-     
-    mysql_close($connection); 
-} 
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +27,7 @@ if($imie and $email) {
 </head>
 	<body>
 		
-			<form class="form-horizontal" action="connect.php" method="POST">
+			<form class="form-horizontal" action="" method="POST">
 					<fieldset>
 					
 					<!-- Form Name -->
@@ -100,7 +51,7 @@ if($imie and $email) {
 					  </div>
 					</div>
 
-					<!-- Delivery Date -->
+					<!-- Delivery Date 
 					<li id="li_4" >
 							<label class="description" for="delivery_date">Delivery Date </label>
 							<span>
@@ -132,7 +83,9 @@ if($imie and $email) {
 							 
 							</li>
 
-							<!-- delivery time -->
+							-->
+
+							<!-- delivery time
 
 							<li id="dell_time" >
 									<label class="description" for="dellT_1">Delivery time </label>
@@ -156,7 +109,7 @@ if($imie and $email) {
 										<label>AM/PM</label>
 									</span> 
 									</li>
-					
+					 -->
 					<!-- Coll Point -->
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="selectbasic">Collection Point</label>
@@ -188,7 +141,7 @@ if($imie and $email) {
 					</div>
 
 
-					<!-- Delivery date -->
+					<!-- Delivery date 
 					<li id="coll" >
 							<label class="description" for="coll_1">Collection Date </label>
 							<span>
@@ -219,9 +172,9 @@ if($imie and $email) {
 							</script>
 							 
 							</li>
+							-->
 							
-							
-							<!-- Delivery Time -->		
+							<!-- Delivery Time 		
 							<li id="delTime" >
 							<label class="description" for="colTime">Collection time </label>
 							<span>
@@ -244,7 +197,7 @@ if($imie and $email) {
 								<label>AM/PM</label>
 							</span> 
 							</li>
-
+								-->		
 					
 					<!-- Comments -->
 					<div class="form-group">

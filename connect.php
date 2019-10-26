@@ -1,9 +1,15 @@
 <?php
+	$host = 'localhost';
+	$username = 'root';
+	$password = '';
+	$dbName = 'transport';
+	
+// Create connection
+$conn = new mysqli($host, $username, $password);
 
-	$host = "localhost";
-	$db_user = "root";
-	$db_password = "";
-	$db_name = "transport";
-	$table="orders";
-
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 ?>
