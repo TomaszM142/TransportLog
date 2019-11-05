@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,36 +77,54 @@
                                               
                                 <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                         <div class="btn-group" role="group" aria-label="Buttons group">
-                                          <button type="button" class="btn btn-secondary" onClick="window.open('form2.html','form')">Add</br>Item</button>
-                                          <button type="button" class="btn btn-secondary">Edit</br>Item</button>
+                                          <button type="button" class="btn btn-secondary" onClick="window.open('php/form.php','form')">Add</br>Item</button>
+                                          <button type="submit" name="submit" class="btn btn-secondary" value="submit" action="checkbox.php">Edit</br>Item</button>
                                           <button type="button" class="btn btn-secondary">3</button>
                                           <button type="button" class="btn btn-secondary">4</button>
                                         </div>
                                        
                             
-                        </div>
+                                </div>
 
                                 <!-- Wyswitlanie zamowienia -->
-                                <ul>
-<?php include('connect.php');
-
-$conn = new mysqli ($host, $username, $password, $dbName);
-
-if ($conn->connect_error) {
-    die("connection failed: ".$conn->connect_error);
-}
-
-$sql = "SELECT * FROM orders ORDER BY id"; 
-$result = $conn->query($sql);
-while ($row = $result->fetch_assoc()) {
-    echo "id: ".$row["id"]." - Name: ".$row["name"];
-}
-
-   ?> 
-</ul>
+                                <div class="table-responsive">
+                                
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Delivery Address</th>
+        <th scope="col">Collection Point</th>
+        <th scope="col">Comments</th>
+        </tr>
+    </thead>
+    <?php   
+        require_once 'php/database.php';
 
 
+        $ordersQuery = $db->query('SELECT * FROM orders');
+        $orders = $ordersQuery->fetchAll();
 
+                               
+              
+    echo '<tbody>';
+    
+
+    foreach ($orders as $order) {
+        echo "<tr><td><input type='checkbox' id='checkbox' name='checkbox'><td>{$order['id']}</td><td>{$order['name']}</td><td>{$order['delivery_address']}</td><td>{$order['collPoint']}</td><td>{$order['comments']}</td><td><a href='php/edit.php?id=".$order['id']."'>Edit</a></td></tr>";
+        
+    }
+      
+    echo '</tbody>';
+
+  
+ ?>
+
+  </table>
+ 
+</div>
                         </aside>
                
 
