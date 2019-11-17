@@ -17,8 +17,8 @@ session_start();
 	<meta name="author" content="Tomasz Mlokosiewicz">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../main.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
 	<!--[if lt IE 9]>
@@ -39,18 +39,18 @@ session_start();
                         </div>
                 
                         <ul class="list-unstyled">
-                            <a href="index.php"><img src="img/logo.png"height="120" alt="Logo"></p>
+                            <a href="../index.php"><img src="../img/logo.png"height="120" alt="Logo"></p>
                             <li class="active">
                                 <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle menuText ml-3">Transport</a>
                                 <ul class="collapse list-unstyled ml-3" id="submenu">
                                     <li>
-                                        <a href="index.php" class="list-group-item list-group-item-dark list-group-item-action">Daily</a>
+                                        <a href="../index.php" class="list-group-item list-group-item-dark list-group-item-action">Daily</a>
                                     </li>
                                     <li>
-                                        <a href="php/bydate.php" class="list-group-item list-group-item-dark list-group-item-action">Date</a>
+                                        <a href="bydate.php" class="list-group-item list-group-item-dark list-group-item-action">Date</a>
                                     </li>
                                     <li>
-                                        <a href="php/history.php" class="list-group-item list-group-item-dark list-group-item-action">Dispatched</a>
+                                        <a href="history.php" class="list-group-item list-group-item-dark list-group-item-action">Dispatched</a>
                                     </li>
                                 </ul>
                             </li>
@@ -96,14 +96,11 @@ session_start();
         </tr>
     </thead>
     <?php   
-        require_once 'php/database.php';
-
-        $today = Date("d/m/Y");
-
-        $ordersQuery = $db->query('SELECT * FROM orders WHERE collDate = "'.$today.'"');
+        require_once 'database.php';  
+    
+        $ordersQuery = $db->query('SELECT * FROM orders WHERE despatched = "YES"');
         $orders = $ordersQuery->fetchAll();
-
-                               
+                              
               
     echo '<tbody>';
     
@@ -130,13 +127,11 @@ session_start();
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/tablefilter.js"></script>    
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/tablefilter.js"></script>    
     <script>
         jQuery('#tablefilter').ddTableFilter();
     </script>
 	
 </body>
 </html>
-
-<div style='color: red'> Wydaje sie ze wszystko jest gotowe!?! :) Pozsotaje zrobic "ABOUT" oraz "CONTACT" <br/></div>

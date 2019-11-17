@@ -15,13 +15,19 @@
 	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../view.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 	<link rel="stylesheet" href="/resources/demos/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
-	<script type="text/javascript" src="view.js"></script>
-	<script type="text/javascript" src="calendar.js"></script>
+
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<!--[if lt IE 9]>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script type="text/javascript" src="../js/datepicker/build/SalsaCalendar.min.js"></script>
+	<script type="text/javascript" src="../calendar.js"></script>
 	<![endif]-->
 
 
@@ -52,66 +58,7 @@
 						
 					  </div>
 					</div>
-
-					<!-- Delivery Date 
-					<li id="li_4" >
-							<label class="description" for="delivery_date">Delivery Date </label>
-							<span>
-								<input id="delivery_date_1" name="delivery_date_1" class="element text" size="2" maxlength="2" value="" type="text"> /
-								<label for="delivery_date_1">MM</label>
-							</span>
-							<span>
-								<input id="delivery_date_2" name="delivery_date_2" class="element text" size="2" maxlength="2" value="" type="text"> /
-								<label for="delivery_date_2">DD</label>
-							</span>
-							<span>
-								 <input id="delivery_date_3" name="delivery_date_3" class="element text" size="4" maxlength="4" value="" type="text">
-								<label for="delivery_date_3">YYYY</label>
-							</span>
-						
-							<span id="delivery_date">
-								<img id="cal_img_4" class="datepicker" src="calendar.gif" alt="Pick a date.">	
-							</span>
-							<script type="text/javascript">
-								Calendar.setup({
-								inputField	 : "element_4_3",
-								baseField    : "element_4",
-								displayArea  : "calendar_4",
-								button		 : "cal_img_4",
-								ifFormat	 : "%B %e, %Y",
-								onSelect	 : selectDate
-								});
-							</script>
-							 
-							</li>
-
-							-->
-
-							<!-- delivery time
-
-							<li id="dell_time" >
-									<label class="description" for="dellT_1">Delivery time </label>
-									<span>
-										<input id="dellT_1_1" name="dellT_1_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-										<label>HH</label>
-									</span>
-									<span>
-										<input id="dellT_1_2" name="dellT_1_2" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-										<label>MM</label>
-									</span>
-									<span>
-										<input id="dellT_1_3" name="dellT_1_3" class="element text " size="2" type="text" maxlength="2" value=""/>
-										<label>SS</label>
-									</span>
-									<span>
-										<select class="element select" style="width:4em" id="collT_1_4" name="collT_1_4">
-											<option value="AM" >AM</option>
-											<option value="PM" >PM</option>
-										</select>
-										<label>AM/PM</label>
-									</span> 
-									</li>
-					 -->
+	
 					<!-- Coll Point -->
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="selectbasic">Collection Point</label>
@@ -123,89 +70,84 @@
 					  </div>
 					</div>
 					
-					<!-- Status 
+					<!-- Picked -->
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for="checkboxes">Status</label>
+					  <label class="col-md-4 control-label" for="radios">Picked?</label>
 					  <div class="col-md-4">
-					  <div class="checkbox">
-						<label for="checkboxes-0">
-						  <input type="checkbox" name="status-0" id="status-0" value="1">
-						  Picked
+					  <div class="radio">
+						<label for="picked">						  
+						  <input type="radio" name="picked" value="YES">
+						  YES
 						</label>
 						</div>
-					  <div class="checkbox">
-						<label for="checkboxes-1">
-						  <input type="checkbox" name="status-1" id="status-1" value="2">
-						  Dispatched
+						<div class="radio">
+						<label for="picked">
+						  <input type="radio" name="picked" value="NO" checked="checked">
+						  NO
 						</label>
 						</div>
-					  </div>
+					   </div>
 					</div>
-					-->
 
-					<!-- Delivery date 
-					<li id="coll" >
-							<label class="description" for="coll_1">Collection Date </label>
-							<span>
-								<input id="coll_1" name="coll_1_1" class="element text" size="2" maxlength="2" value="" type="text"> /
-								<label for="coll_1">MM</label>
-							</span>
-							<span>
-								<input id="coll_1_2" name="coll_1_2" class="element text" size="2" maxlength="2" value="" type="text"> /
-								<label for="coll_1_2">DD</label>
-							</span>
-							<span>
-								 <input id="coll_1_3" name="coll_1_3" class="element text" size="4" maxlength="4" value="" type="text">
-								<label for="coll_1_3">YYYY</label>
-							</span>
-						
-							<span id="coll_cal_1">
-								<img id="cal_img_4" class="datepicker" src="calendar.gif" alt="Pick a date.">	
-							</span>
-							<script type="text/javascript">
-								Calendar.setup({
-								inputField	 : "coll_1_3",
-								baseField    : "coll_1",
-								displayArea  : "coll_1",
-								button		 : "cal_img_4",
-								ifFormat	 : "%B %e, %Y",
-								onSelect	 : selectDate
+					<!-- Despatched -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="radio">Despatched?</label>
+					  <div class="col-md-4">
+					  <div class="radio">
+						<label for="despatched" default="NO">						  
+						  <input type="radio" name="despatched" value="YES">
+						  YES
+						</label>
+						</div>
+						<div class="radio">
+						<label for="despatched">
+						  <input type="radio" name="despatched" value="NO" checked="checked">
+						  NO
+						</label>
+						</div>
+					   </div>
+					</div>
+
+					<!-- Collection date -->
+					<div class="form-group">
+					<label class="col-md-4 control-label" for="collDate">Collection date </label>
+						<div class="col-md-4">
+							<input type="text" required="" id="collDate" name="collDate" autocomplete="off" onchange="console.log(d.getDate())">
+							<script>
+							$( function() {
+								$( "#collDate" ).datepicker({ dateFormat: "dd/mm/yy" }).val();
+								$( "#format" ).on( "change", function() {
+								$( "#collDate" ).datepicker( "option", "dateFormat", $( this ).val() );
 								});
+							} );
+						
 							</script>
-							 
-							</li>
-							-->
-							
-							<!-- Delivery Time 		
-							<li id="delTime" >
-							<label class="description" for="colTime">Collection time </label>
-							<span>
-								<input id="element" name="colTime_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-								<label>HH</label>
-							</span>
-							<span>
-								<input id="element" name="colTime_2" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-								<label>MM</label>
-							</span>
-							<span>
-								<input id="element" name="colTime_3" class="element text " size="2" type="text" maxlength="2" value=""/>
-								<label>SS</label>
-							</span>
-							<span>
-								<select class="element select" style="width:4em" id="element_1" name="Collampm">
-									<option value="AM" >AM</option>
-									<option value="PM" >PM</option>
-								</select>
-								<label>AM/PM</label>
-							</span> 
-							</li>
-								-->		
+						</div>
+					</div>
+
+					
+					<!-- Delivery date -->
+					<div class="form-group">
+					<label class="col-md-4 control-label" for="delDate">Delivery date </label>
+						<div class="col-md-4">
+							<input type="text" required="" id="delDate" name="delDate" autocomplete="off" onchange="console.log(d.getDate())">
+							<script>
+							$( function() {
+								$( "#delDate" ).datepicker({ dateFormat: "dd/mm/yy" }).val();
+								$( "#format" ).on( "change", function() {
+								$( "#delDate" ).datepicker( "option", "dateFormat", $( this ).val() );
+								});
+							} );
+							</script>
+						</div>
+					</div>
+								
 					
 					<!-- Comments -->
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for=comments>Comments</label>
+					  <label class="col-md-4 control-label" for="comments">Comments</label>
 					  <div class="col-md-4">                     
-						<textarea class="form-control" id="comments" name="comments">Your comments....</textarea>
+						<textarea class="form-control" id="comments" name="comments" placeholder="Your comments...."></textarea>
 					  </div>
 					</div>
 					
