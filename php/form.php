@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +12,10 @@
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../view.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- 	<link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" href="../default.css" type="text/css">
+	<link rel="stylesheet" href="../css/transitions.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
 
@@ -34,11 +33,14 @@
 
 </head>
 	<body>
-		
+		<div class="container col-md-6 content">
 			<form enctype="multipart/form-data" class="form-horizontal" action="add.php" method="POST">
-					<fieldset>
+			<div class="form-group">        
+			<a href="../index.php"><img id="iconback" src="../img/back.png"></i></a>
+			</div>
+					<!-- Form that collecting data from user -->
+					<fieldset>		
 					
-					<!-- Form Name -->
 					<legend>Add Item</legend>
 					
 					<!-- Name-->
@@ -155,13 +157,13 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="Submit"></label>
 					  <div class="col-md-4">
-						<button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
+					  <input type="submit" name="update" value="Submit">
 					  </div>
 					</div>
 					
 					</fieldset>
 					</form>
-					
+		</div>
 
 	</body>
 	

@@ -1,7 +1,6 @@
-
 body
 {
-	background-color: #2F3336;
+	background-color:#2F3336;
 	color: #efefef;
     font-family: 'Open Sans', sans-serif;
 	font-size: 17px;
@@ -40,7 +39,8 @@ h3
 
 .content
 {
-    background-color: grey;
+	background-color: grey;
+	padding: 20px;
 }
 
 .btn
@@ -49,20 +49,19 @@ h3
     width: 70px;
 }
 
-/*
-.navbar-nav li:hover>.dropdown-menu
+#about
 {
-	display: block;
+	padding: 20px;
+	background-color: whitesmoke;
 }
-*/
 
 .bg-men
 {
-    background-color: #91a33b !important;
+    background-color: #4c4d4a8f !important;
     height: 100%;
 }
 
-	
+
 @media (max-width: 575px)
 {
 	.wpis
@@ -99,4 +98,3 @@ h3
 	
 
 }
-

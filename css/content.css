@@ -1,0 +1,25 @@
+#contact
+{
+    text-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+    
+}
+
+.control-label
+{
+    text-align: left;
+}
+
+.about
+{
+    padding: 20px;
+    border-bottom: 2px solid black;
+   
+}
+.about-noborder
+{
+    padding: 20px;
+       
+}
+

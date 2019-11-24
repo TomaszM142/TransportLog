@@ -1,5 +1,5 @@
 <?php
-
+// connecting to database usinf credentials from connect.php
 $config = require_once 'connect.php';
 
 try {

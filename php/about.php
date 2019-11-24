@@ -1,9 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +9,15 @@ session_start();
 	<meta name="description" content="Transport Log System">
 	<meta name="keywords" content="transport, WMS, logistic">
 	<meta name="author" content="Tomasz Mlokosiewicz">
-	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
-	
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+ 	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../default.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-	
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../css/content.css">
+    <link rel="stylesheet" href="../css/transitions.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    
+
 	<!--[if lt IE 9]>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
@@ -65,56 +62,51 @@ session_start();
                     </nav>
                 
                 </aside>
- 
-                        <aside class="col-md-10 content">
 
-                                <!-- Add item -->              
-                                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-                                        <div class="btn-group" role="group" aria-label="Buttons group">
-                                        <a type="button" class="btn btn-dark" href="form.php">Add</br>Item</a>                          
-                                        </div>                                       
-                            
-                                </div>
+                    <!-- Some info about me -->
+                    <aside class="col-md-10 content">
+                    <section id="contact" class="col align-items-center justify-content-center col-md-12 ">
 
-                                <!-- Table with despatched orders view -->
-                                <div class="table-responsive">
-                                
-<table class="table" id="tablefilter" name="tablefilter">
-    <thead>
-      <tr>        
-        <th scope="col">Name</th>
-        <th scope="col">Delivery Address</th>
-        <th scope="col">Collection Point</th>
-        <th scope="col">Picked</th>
-        <th scope="col">Despatched</th>
-        <th scope="col">Collection Date</th>
-        <th scope="col">Delivery Date</th>
-        <th scope="col">Comments</th>
-        <th scope="col">Options</th>
-        </tr>
-    </thead>
-    <?php   
-    require_once 'database.php';  
-    // Collecting despatched orders from database
-    $ordersQuery = $db->query('SELECT * FROM orders WHERE despatched = "YES"');
-    $orders = $ordersQuery->fetchAll();
-                              
-              
-    echo '<tbody>';
-    // Display all desptached orders in table
-    foreach ($orders as $order) {
-        echo "<tr><td>{$order['name']}</td><td>{$order['delivery_address']}</td><td>{$order['collPoint']}</td><td>{$order['picked']}</td><td>{$order['despatched']}</td><td>{$order['collDate']}</td><td>{$order['delDate']}</td><td>{$order['comments']}</td><td><a style='height: 100%; margin: 2px; padding:0; font-size: 14px; ' class='btn btn-dark' href='edit.php?id=".$order['id']."'>Edit</a><br/><a style='height: 100%; margin: 2px; padding:0; font-size: 14px;' class='btn btn-dark' href='delete.php?id=".$order['id']."'>Delete</a></td></tr>";
-        
-    }
-      
-    echo '</tbody>';
-  
- ?>
+                        <div class="about">
+                            <h2>About Me</h2>
+                        </div>
 
-  </table>
- 
-</div>
-                        </aside>
+                        <div class="about">
+                        <h5>Hi, I'm Tomasz Mlokosiewicz, living in United Kingdon, Nottingham! 
+                        At an early age, I developed an interest in computers, so I decided to study computer science and I graduated in 2010. 
+                        My studies have assisted me in gaining relevant technical skills and my self-employment experience in the IT sector as a trainer has enabled me to extend my skills in the areas of communication and problem-solving.
+                        In 2015 I moved to Nottingham, UK. I'm not sure but I believe that it was in 2017 when I started writing my first code, I started from the basics: HTML and CSS. The ability to create websites was amazing so my curiosity led me to start working with different languages. So far I can work with: HTML, CSS, PHP, JavaScript, MySQL. </h5>          
+                        </div> 
+                        
+                        <div class="about-noborder">
+                            <h2>Languages, Frameworks & Libraries</h2>
+                        </div>
+
+                        <!-- Icons with transitions - transitions.css -->
+                        <div class="about-noborder row align-items-center justify-content-center col-md-12">
+
+                        <div class="transition col-2">
+                            <img class="icon" src="../img/html.png"></i>
+                        </div>
+                        <div class="transition col-2">
+                            <img class="icon" src="../img/css.png"></i>
+                        </div>
+                        <div class="transition col-2">
+                            <img class="icon" src="../img/php.png"></i>
+                        </div>
+                        <div  class="transition col-2">
+                            <img class="icon" src="../img/js.png"></i>
+                        </div>
+                        <div class="transition col-2">
+                            <img class="icon" src="../img/sql.png"></i>
+                        </div>
+                        <div class="transition col-2">
+                            <img class="icon" src="../img/bootstrap.png"></i>
+                        </div>
+                    </div>
+                        
+                    </section>
+                    </aside>
                
 
        
@@ -126,10 +118,8 @@ session_start();
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/tablefilter.js"></script>    
-    <script>
-        jQuery('#tablefilter').ddTableFilter();
-    </script>
+
+   
 	
 </body>
 </html>

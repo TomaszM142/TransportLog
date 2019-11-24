@@ -16,10 +16,10 @@ session_start();
 	<meta name="keywords" content="transport, WMS, logistic">
 	<meta name="author" content="Tomasz Mlokosiewicz">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
-	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">       
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="default.css" type="text/css">
 	
 	<!--[if lt IE 9]>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -55,11 +55,11 @@ session_start();
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="nav-link menuText ml-3">About</a>
+                                <a href="php/about.php" class="nav-link menuText ml-3">About</a>
                             </li>
                                                 
                             <li>
-                                <a href="#" class="nav-link menuText ml-3">Contact</a>
+                                <a href="php/contact.php" class="nav-link menuText ml-3">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -68,17 +68,17 @@ session_start();
  
                         <aside class="col-md-10 content">
 
-                                              
+                                <!-- Add item -->              
                                 <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                         <div class="btn-group" role="group" aria-label="Buttons group">
-                                          <button type="button" class="btn btn-dark" onClick="window.open('php/form.php','form')">Add</br>Item</button>
+                                        <a type="button" class="btn btn-dark" href="php/form.php">Add</br>Item</a>
                                           
                                         </div>
                                        
                             
                                 </div>
 
-                                <!-- Wyswitlanie zamowienia -->
+                                <!-- Table with todays order view -->
                                 <div class="table-responsive">
                                 
 <table class="table" id="tablefilter" name="tablefilter">
@@ -95,14 +95,15 @@ session_start();
         <th scope="col">Options</th>
         </tr>
     </thead>
+    
     <?php   
         require_once 'php/database.php';
 
+        //* Collecting orders with todays date from database and display in table//
         $today = Date("d/m/Y");
 
         $ordersQuery = $db->query('SELECT * FROM orders WHERE collDate = "'.$today.'"');
         $orders = $ordersQuery->fetchAll();
-
                                
               
     echo '<tbody>';
@@ -119,11 +120,14 @@ session_start();
   </table>
  
 </div>
-                        </aside>
-               
+                        </aside>    
 
-       
-        </div>
+                        
+ 
+        
+        </div>   
+        
+        
     </div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -134,9 +138,8 @@ session_start();
     <script src="js/tablefilter.js"></script>    
     <script>
         jQuery('#tablefilter').ddTableFilter();
-    </script>
-	
+    </script>    
+    
 </body>
 </html>
 
-<div style='color: red'> Wydaje sie ze wszystko jest gotowe!?! :) Pozsotaje zrobic "ABOUT" oraz "CONTACT" <br/></div>

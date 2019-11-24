@@ -12,7 +12,7 @@
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../main.css">
+	<link rel="stylesheet" href="../default.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
 	<!--[if lt IE 9]>
@@ -28,7 +28,7 @@
 session_start();
 
 require_once 'form.php';
-// odbieramy dane z formularza
+// collecting data from form and sendind to database
 
 
 if (isset($_POST['name'])) {
@@ -64,18 +64,14 @@ if (isset($_POST['name'])) {
 
     }
 
-
 } else {
 
     header('Location: add.php');
     exit();
 }
 ?>
-
-
-
-
-    <div class="container">
+    <!-- Message once added to database succesfull -->
+    <div class="container col-md-6 content">
 
         <header>
             <h1>Success!</h1>
@@ -84,7 +80,7 @@ if (isset($_POST['name'])) {
         <main>
             <article>
                 <p>Order has been added.</p>
-                <a href="../index.php">Back to main page</a>
+                <input type="button" value="Close this window" onclick="self.close()">
             </article>
         </main>
 

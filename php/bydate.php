@@ -18,7 +18,7 @@ session_start();
     <meta http-equiv="X-Ua-Compatible" content="IE=edge">
  	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../main.css">
+	<link rel="stylesheet" href="../default.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
     
 
@@ -56,11 +56,11 @@ session_start();
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="nav-link menuText ml-3">About</a>
+                                <a href="about.php" class="nav-link menuText ml-3">About</a>
                             </li>
                                                 
                             <li>
-                                <a href="#" class="nav-link menuText ml-3">Contact</a>
+                                <a href="contact.php" class="nav-link menuText ml-3">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -69,17 +69,15 @@ session_start();
  
                         <aside class="col-md-10 content">
 
-                                              
+                                <!-- Add item -->              
                                 <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                         <div class="btn-group" role="group" aria-label="Buttons group">
-                                          <button type="button" class="btn btn-dark" onClick="window.open('php/form.php','form')">Add</br>Item</button>
-                                          
-                                        </div>
-                                       
+                                        <a type="button" class="btn btn-dark" href="form.php">Add</br>Item</a>
+                                        </div>                                      
                             
                                 </div>
 
-                                <!-- Wyswitlanie zamowienia -->
+                                <!-- Table with todays order view -->
                                 <div class="table-responsive">
                                 
 <table class="table h-auto" id="tablefilter" name="tablefilter">
@@ -100,7 +98,7 @@ session_start();
     <?php   
         require_once 'database.php';
 
-
+        //* Collecting all not dispatched orders from database and display in table//
         $ordersQuery = $db->query('SELECT * FROM orders');
         $orders = $ordersQuery->fetchAll();
 
@@ -110,7 +108,7 @@ session_start();
     
 
     foreach ($orders as $order) {
-        echo "<tr><td>{$order['name']}</td><td>{$order['delivery_address']}</td><td>{$order['collPoint']}</td><td>{$order['picked']}</td><td>{$order['despatched']}</td><td>{$order['collDate']}</td><td>{$order['delDate']}</td><td>{$order['comments']}</td><td><a style='height: 100%; margin: 2px; padding:0; font-size: 14px; ' class='btn btn-dark' href='php/edit.php?id=".$order['id']."'>Edit</a><br/><a style='height: 100%; margin: 2px; padding:0; font-size: 14px; ' class='btn btn-dark' href='php/delete.php?id=".$order['id']."'>Delete</a></td></tr>";
+        echo "<tr><td>{$order['name']}</td><td>{$order['delivery_address']}</td><td>{$order['collPoint']}</td><td>{$order['picked']}</td><td>{$order['despatched']}</td><td>{$order['collDate']}</td><td>{$order['delDate']}</td><td>{$order['comments']}</td><td><a style='height: 100%; margin: 2px; padding:0; font-size: 14px; ' class='btn btn-dark' href='edit.php?id=".$order['id']."'>Edit</a><br/><a style='height: 100%; margin: 2px; padding:0; font-size: 14px; ' class='btn btn-dark' href='delete.php?id=".$order['id']."'>Delete</a></td></tr>";
         
     }
       
@@ -135,6 +133,7 @@ session_start();
     <script src="../js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="../js/tablefilter.js"></script>
+    <!-- Table filtering script -->
     <script>
         jQuery('#tablefilter').ddTableFilter();
     </script>

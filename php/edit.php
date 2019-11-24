@@ -1,5 +1,5 @@
 <?php
-
+// Editing order
 include_once('database.php');
 
 if (isset ($_POST['update'])) {
@@ -70,15 +70,13 @@ if (isset ($_POST['update'])) {
         }
     }
 
-
-
 ?>  
 
 <?php
-//getting id from url
+// Getting id from url
 $id = $_GET['id'];
  
-//selecting data associated with this particular id
+// Selecting data associated with this particular id
 $sql = "SELECT * FROM orders WHERE id=:id";
 $query = $db->prepare($sql);
 $query->execute(array(':id' => $id));
@@ -110,7 +108,8 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="../css/transitions.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  	<link rel="stylesheet" href="/resources/demos/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -124,12 +123,16 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 	
 </head>
  
-<body>
-    <a href="../index.php">Home</a>
-    <br/><br/>
+<body>        
     <div class="container col-md-6 content">
-    <form enctype="multipart/form-data" class="form-horizontal " name="Edit" method="post" action="edit.php">        
-        <div class="form-group">
+    <!-- Form that contains all information taken from database by ID -->
+    <form enctype="multipart/form-data" class="form-horizontal " name="Edit" method="post" action="edit.php">  
+        <div class="form-group">        
+        <a href="../index.php"><img id="iconback" src="../img/back.png"></i></a>
+        </div>   
+        
+        <div class="form-group">        
+        <legend>Edit Item</legend>
             <label class="col-md-4 control-label" for="textinput">Customer Name</label>  
                 <div class="col-md-4">
                     <input class="form-control" type="text" name="name" value="<?php echo $name;?>"></td>
@@ -154,7 +157,8 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 		</div>
 
         <div class="form-group">
-			<label class="col-md-4 control-label" for="textinput">Picked?</label>  
+            <label class="col-md-4 control-label" for="textinput">Picked?</label> 
+            <div class="col-md-4"> 
             <div class="radio">
 				<label for="picked">						  
 					<input type="radio" name="picked" value="YES" <?php if ($picked=="YES") { echo 'checked="checked"';}?>>
@@ -166,11 +170,13 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 					<input type="radio" name="picked" value="NO" <?php if ($picked=="NO") { echo 'checked="checked"';}?>>
 						NO
 				</label>
-			</div>
+            </div>
+            </div>
         </div>
 
         <div class="form-group">
-			<label class="col-md-4 control-label" for="textinput">Despatched?</label>  
+            <label class="col-md-4 control-label" for="textinput">Despatched?</label> 
+            <div class="col-md-4">  
             <div class="radio">
 				<label for="despatched">						  
 					<input type="radio" name="despatched" value="YES" <?php if ($despatched=="YES") { echo 'checked="checked"';}?>>
@@ -182,7 +188,8 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 					<input type="radio" name="despatched" value="NO" <?php if ($despatched=="NO") { echo 'checked="checked"';}?>>
 						NO
 				</label>
-			</div>
+            </div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -191,7 +198,7 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
                     <input class="form-control" type="text" value="<?php echo $collDate;?>" required="" id="collDate" name="collDate" autocomplete="off" onchange="console.log(d.getDate())">
 						<script>
 							$( function() {
-								$( "#collDate" ).datepicker();
+								$( "#collDate" ).datepicker({ dateFormat: "dd/mm/yy" }).val();
 								$( "#format" ).on( "change", function() {
 								$( "#collDate" ).datepicker( "option", "dateFormat", $( this ).val() );
 								});
@@ -207,7 +214,7 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
                     <input class="form-control" type="text" value="<?php echo $delDate;?>" required="" id="delDate" name="delDate" autocomplete="off" onchange="console.log(d.getDate())">
 						<script>
 							$( function() {
-								$( "#delDate" ).datepicker();
+								$( "#delDate" ).datepicker({ dateFormat: "dd/mm/yy" }).val();
 								$( "#format" ).on( "change", function() {
 								$( "#delDate" ).datepicker( "option", "dateFormat", $( this ).val() );
 								});
@@ -234,4 +241,3 @@ while($row = $query->fetch(PDO::FETCH_ASSOC))
 </body>
 </html>
 
-<!-- poprawic wyglad - pobawic sie bootstrapem -->
